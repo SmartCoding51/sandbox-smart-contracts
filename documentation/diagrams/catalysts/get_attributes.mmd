@@ -1,0 +1,12 @@
+sequenceDiagram
+autonumber
+
+    Note over user, CatalystRegistry: get Attributes
+
+    user->>+AssetAttributesRegistry:getAttributes(catalystId,assetId,events)
+    AssetAttributesRegistry->>+GemsAndCatalysts:getAttributes(catalystId,assetId,events)
+    GemsAndCatalysts->>+Catalyst:getAttributes(assetId,events)
+    Catalyst-->>-GemsAndCatalysts:attributes
+    GemsAndCatalysts-->>-AssetAttributesRegistry:attributes
+    AssetAttributesRegistry-->>-user:attributes
+

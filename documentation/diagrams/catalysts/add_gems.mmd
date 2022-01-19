@@ -1,0 +1,8 @@
+sequenceDiagram
+autonumber
+
+    Note over owner, AssetUpgrader: Add Gems
+    owner->>+AssetUpgrader:addGems(id,catalyst,gems)
+    AssetUpgrader->>GemsAndCatalysts:burn([],gems)
+    AssetUpgrader->>SAND:transferFrom(artist,feeRecipient,fee*supply)
+    AssetUpgrader->>-AssetAttributesRegistry:addGems(id,gems)
